@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Popover from 'react-tiny-popover';
 import Fuse from 'fuse.js';
 import PropTypes from 'prop-types';
