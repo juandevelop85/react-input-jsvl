@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import Popover from 'react-tiny-popover';
 import Fuse from 'fuse.js';
 import PropTypes from 'prop-types';
@@ -8,20 +8,20 @@ import styles from './Selector.module.scss';
 let inputFocusTimeOut = null;
 
 const Selector = ({ nameForm, data, extraOption, placeholder, onSelectOption, defaultOptionValue }) => {
-	const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-	const [dataToSearch, setDataToSearch] = useState('');
-	const [findingDataArray, setFindingDataArray] = useState('');
-	const [selectedData, setSelectedData] = useState('');
-	const inputRef = useRef(null);
+	const [isPopoverOpen, setIsPopoverOpen] = React.useState(false);
+	const [dataToSearch, setDataToSearch] = React.useState('');
+	const [findingDataArray, setFindingDataArray] = React.useState('');
+	const [selectedData, setSelectedData] = React.useState('');
+	const inputRef = React.useRef(null);
 
-	useEffect(() => {
+	React.useEffect(() => {
 		if (defaultOptionValue) {
 			const defaultOption = data.find((item) => item.value === defaultOptionValue);
 			selectCurrentData(defaultOption);
 		}
 	}, [defaultOptionValue]);
 
-	useEffect(() => {
+	React.useEffect(() => {
 		if (isPopoverOpen) {
 			inputFocusTimeOut = setTimeout(() => {
 				inputRef.current.focus();
